@@ -14,7 +14,6 @@ export const Home = () => {
   return (
     <Fragment>
       <Form />
-
       <hr />
       {loading ? <Loader /> : <Notes notes={notes} onRemove={removeNote} />}
     </Fragment>

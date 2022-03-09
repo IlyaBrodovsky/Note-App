@@ -15,7 +15,6 @@ export const Form = () => {
           alert.show("Заметка создана", "success");
       }).catch(() => {
         alert.show("Заметка не была создана", "danger");
-        
       })
       setValue("");
     } else {

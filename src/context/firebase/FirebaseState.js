@@ -14,7 +14,9 @@ export const FirebaseState = ({ children }) => {
 
   const [state, dispatch] = useReducer(firebaseReducer, initialState);
 
-  const showLoader = () => dispatch({ type: SHOW_LOADER });
+  function showLoader() {
+    return dispatch({ type: SHOW_LOADER });
+  }
 
   const fetchNotes = async () => {
     showLoader();
@@ -39,16 +41,16 @@ export const FirebaseState = ({ children }) => {
       const payload = {
         ...note,
         id: res.data.name,
-      };
+      }
       dispatch({ type: ADD_NOTE, payload });
     } catch (e) {
       throw new Error(e.message);
     }
   };
-  const removeNote = async (id) => {
+  async function removeNote(id) {
     await axios.delete(`${url}/notes/${id}.json`);
     dispatch({ type: REMOVE_NOTE, payload: id });
-  };
+  }
 
   return (
     <FirebaseContext.Provider
@@ -58,7 +60,7 @@ export const FirebaseState = ({ children }) => {
         removeNote,
         fetchNotes,
         loading: state.loading,
-        notes: state.notes,
+        notes: state.notes
       }}
     >
       {children}

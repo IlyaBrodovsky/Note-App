@@ -15,8 +15,7 @@ export const Alert = () => {
       unmountOnExit
     >
       <div
-        className={`alert alert-${alert.type || "warning"} alert-dismissible`}
-      >
+        className={`alert alert-${alert.type || "warning"} alert-dismissible`}>
         <strong>Внимание!</strong>
         &nbsp;{alert.text}
         <button

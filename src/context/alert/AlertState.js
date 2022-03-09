@@ -20,7 +20,7 @@ export const AlertState = ({ children }) => {
       value={{
         show,
         hide,
-        alert: state,
+        alert: state
       }}
     >
       {children}
